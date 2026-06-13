@@ -10,4 +10,4 @@
 
 # Frontend - Login:
 
-29:00 min
+28:00 min
