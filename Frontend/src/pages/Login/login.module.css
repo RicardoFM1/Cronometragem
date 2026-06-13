@@ -1,0 +1,43 @@
+.divLogin{
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.divFoto{
+    display: flex;
+    flex: 0 0 60%;
+    width: 100%;
+}
+
+.foto{
+    overflow: hidden;
+    width: 100%;
+}
+
+.divForm {
+    display: flex;
+    flex: 1;
+    padding: 40px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: 20px;
+}
+
+
+
+.logo{
+    width: 75px;
+    margin-bottom: 20px;
+}
+
+.btnSubmit {
+    background-color: rgb(139, 111, 68) !important;
+    border: none !important;
+    font-size: 20px !important;
+}
