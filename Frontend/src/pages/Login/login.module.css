@@ -41,3 +41,9 @@
     border: none !important;
     font-size: 20px !important;
 }
+
+@media (max-width: 1024px){
+    .divFoto{
+        display: none;
+    }
+}
