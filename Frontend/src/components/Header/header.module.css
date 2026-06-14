@@ -1,0 +1,51 @@
+.logo {
+  width: 45px;
+}
+
+.divMeio {
+  display: flex;
+  gap: 18px;
+}
+
+.divMeio > button {
+  background-color: unset !important;
+  border: unset;
+  color: black !important;
+  font-size: 18px;
+}
+
+.divMeio > button:active {
+  border-bottom: 4px solid rgb(223, 223, 164) !important;
+}
+
+.divMeio > button:hover {
+  border-bottom: 4px solid rgb(223, 223, 164);
+  font-size: 20px;
+}
+
+.botaoAtivo {
+  border-bottom: 4px solid rgb(223, 223, 164) !important;
+  font-size: 20px;
+}
+
+.botaoSair {
+  background-color: rgb(161, 88, 88) !important;
+  border: unset !important;
+  margin-right: 18px;
+}
+
+.botaoSair:hover {
+  background-color: rgb(158, 102, 102) !important;
+  border: unset !important;
+  margin-right: 18px;
+}
+
+@media (max-width: 1024px){
+    .divMeio{
+        display: none;
+    }
+
+    .botaoSair{
+        display: none;
+    }
+}
