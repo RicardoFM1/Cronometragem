@@ -154,15 +154,10 @@ class ConvidadoService
             }
 
 
-            if ($convidadoDados['confirmacao'] === 'confirmado' || $convidadoDados['confirmacao'] === 'pendente') {
-                throw new Exception('Só é possível cancelar um convidado', 400);
-            }
-            if (!isset($convidadoDados['confirmacao']) || $convidadoDados['confirmacao'] === '') {
-                $convidadoDados['confirmacao'] = $convidado['dados']['confirmacao'];
-            }
+           
 
-            if ($convidado['dados']['confirmacao'] === 'confirmado' && $convidadoDados['confirmacao'] === 'cancelado' && $jwt->dados->cargo_usuario !== 'administrador' ) {
-                throw new Exception('Não é possivel cancelar um convidado já confirmado', 409);
+            if ($convidado['dados']['confirmacao'] === 'confirmado' && $convidadoDados['confirmacao'] !== 'confirmado' && $jwt->dados->cargo_usuario !== 'administrador' ) {
+                throw new Exception('Sem permissão para cancelar ou colocar em pendente um convidado já confirmado, ação apenas para administradores', 409);
             }
 
             $mesaReferenciada = new MesaService()->buscarMesaPorId($convidadoDados['mesa_idmesa']);
