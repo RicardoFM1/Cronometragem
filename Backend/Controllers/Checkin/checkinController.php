@@ -47,12 +47,11 @@ class CheckinController
     public function cancelarCheckin()
     {
         try {
-            $jwt = Middleware::validarMiddleware();
-            $email = $_GET['email_convidado'];
+            Middleware::validarMiddleware();
             $id = $_GET['id_checkin'];
 
             http_response_code(200);
-            echo json_encode($this->checkinService->cancelarCheckin($email, $id, $jwt));
+            echo json_encode($this->checkinService->cancelarCheckin($id));
 
             exit;
         } catch (Exception $e) {

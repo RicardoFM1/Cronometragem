@@ -129,39 +129,18 @@ class CheckinService
             throw new Exception('Erro ao criar checkin', 500);
         }
     }
-    public function cancelarCheckin($emailConvidado, $idCheckin, $jwt)
+    public function cancelarCheckin($idCheckin)
     {
         try {
 
-
-
-            $convidado = new ConvidadoService()->buscarConvidadoPorEmail($emailConvidado);
-
-            if ($convidado['sucesso'] === false) {
-                throw new Exception($convidado['mensagem'], $convidado['codigo']);
-            }
-
-
-            if ($convidado['dados']['confirmacao'] === 'confirmado' && $jwt->dados->cargo_usuario !== 'administrador') {
-                throw new Exception('Não é possivel cancelar um convidado já confirmado', 409);
-            }
-
-            $this->db->beginTransaction();
-
-           $stmt1 = $this->db->prepare('UPDATE convidado SET confirmacao = :status WHERE email = :email_antigo');
-    $stmt1->execute([
-        ':status' => 'pendente', 
-        ':email_antigo' => $emailConvidado
-    ]);
-
    
-    $stmt2 = $this->db->prepare('UPDATE checkin SET status = :status_checkin WHERE id_checkin = :id_checkin');
-    $stmt2->execute([
+    $stmt = $this->db->prepare('UPDATE checkin SET status = :status_checkin WHERE id_checkin = :id_checkin');
+    $stmt->execute([
         ':status_checkin' => 'não realizado',
         ':id_checkin' => $idCheckin
     ]);
 
-          $this->db->commit();
+          
 
             return [
                 'sucesso' => true,
@@ -171,8 +150,8 @@ class CheckinService
 
 
           
-$this->db->rollBack();
-            throw new Exception('Erro ao cancelar checkin' . $e->getMessage(), 500);
+
+            throw new Exception('Erro ao cancelar checkin', 500);
         }
     }
 }

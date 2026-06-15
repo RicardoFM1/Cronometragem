@@ -105,6 +105,11 @@ if ($rota === '/checkin') {
     if ($metodo === 'POST') {
         $controller->criarCheckin();
     }
+}
+
+if ($rota === '/checkin/cancelar') {
+    $controller = new CheckinController();
+
     if ($metodo === 'PUT') {
         $controller->cancelarCheckin();
     }
