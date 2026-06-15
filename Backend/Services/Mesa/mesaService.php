@@ -98,7 +98,7 @@ class MesaService
                 throw new Exception($mesa['mensagem'], $mesa['codigo']);
             }
 
-            $atualizar = $this->db->prepare('UPDATE mesa SET capacidade = :capacidade, restricao = :restricao,
+            $atualizar = $this->db->prepare('UPDATE mesa SET capacidade = :capacidade, restricao = :restricao
             WHERE id_mesa = :id_mesa');
 
             $atualizar->execute([

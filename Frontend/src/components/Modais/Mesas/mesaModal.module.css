@@ -1,0 +1,10 @@
+.btnCancelar {
+     background-color: rgb(158, 102, 102) !important;
+    border: none !important;
+
+}
+
+.btnSubmit{
+    background-color: rgb(139, 111, 68) !important;
+    border: none !important;
+}

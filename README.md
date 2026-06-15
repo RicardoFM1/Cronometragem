@@ -18,4 +18,5 @@
 
 # Frontend - Tela de mesas: 
 
-
+18 min para fazer a listagem
++ 22 min para fazer os modais
